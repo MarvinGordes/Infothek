@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
-#from flask import Flask, render_template
 import feedparser
 import pandas as pd
 import requests
@@ -120,14 +119,7 @@ def aktualisieren():
     print("done")
     
 aktualisieren()
-#app = Flask(__name__)
 
-#@app.route('/')
-#def index():
-#    return render_template('FrontEnd.html')
-
-#if __name__ == "__main__":
-#    app.run()    
 
 
 

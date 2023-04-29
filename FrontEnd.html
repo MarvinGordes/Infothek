@@ -166,7 +166,17 @@
 <body id="body">  
     
     <P>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+      
+            var data = "{{ data }}";
+            console.log(data);
+            document.getElementById("data").value = data;
+            // Hier können Sie das CSV-Datenobjekt verarbeiten
+
+        </script>
         <py-script>
+            
             from js import document
             import pandas as pd
             from datetime import timedelta, datetime
@@ -175,7 +185,8 @@
             pd.set_option('display.max_rows', None)
             pd.set_option('display.max_colwidth', None)
             url_content = open_url("https://raw.githubusercontent.com/MonsieurLauch/ProjektseminarTest/main/.github/workflows/dataset.csv")
-            main = pd.read_csv(url_content)
+            x = document.getElementById("data").value
+            main = pd.read_csv(x)
             main['Date'] = pd.to_datetime(main['Date'], format='%Y-%m-%d')   
             main = main.set_index('Date') 
             main = main.dropna()    
